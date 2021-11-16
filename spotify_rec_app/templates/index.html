@@ -15,23 +15,23 @@
     </nav>
     <article class="flex two" style="padding: 10em 10em;">
         <div style= "width:300px; margin:0 auto;">
-            <form>
+            <form action="/submit" method="GET"> 
+
                 <label for="song">Enter a song:</label><br>
                 <input type="text" id="song" name="song"><br>
-            </form>
-            <a href="/submit" class="button primary">Recommend</a>
 
+                <input type="submit" value="Recommend" class="button primary">
+            
+            </form>
+            <!-- <a href="/submit" ></a> -->
+        
         </div>
-        <!-- {% block content %}
-        {% for user in users %}
-            <p>{{ user.username }}</p>
-          {% endfor %}
-        {% endblock %} -->
-        <!-- .center {
-            margin: auto;
-            width: 50%;
-            border: 3px solid green;
-            padding: 10px; -->
+        {% block content %}
+        
+            <p>{{ result }}</p>
+          
+        {% endblock %}
+   
     </article>
 
 </body>
