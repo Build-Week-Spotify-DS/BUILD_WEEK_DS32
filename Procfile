@@ -1,1 +1,1 @@
-web: gunicorn spotify_rec_app:app -t 120
+web: gunicorn spotify_rec_app:app.py -t 120
