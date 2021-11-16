@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 from predict import pickle_model
 
 
-
 APP = Flask(__name__)
 
 
@@ -10,7 +9,6 @@ APP = Flask(__name__)
 def index():
     """Base view."""
     return render_template('index.html', title="Spotify Song Suggester")
-   
 
 
 @ APP.route('/submit', methods=['GET'])
@@ -23,5 +21,6 @@ def submit(message=None):
 
     return render_template('index.html', result=result)
 
+
 if __name__ == "__main__":
-    APP.run(debug=True)
+    APP.run()
