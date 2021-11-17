@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-from .predict import pickle_model
+# from .predict import pickle_model
+from .getting_stuff_from_spotify import get_song_params
 
 
 def create_app():
@@ -16,8 +17,8 @@ def create_app():
 
         message = request.values['song']
 
-        result = pickle_model(message)
+        s_chacteristic, s_params = get_song_params(message)
 
-        return render_template('index.html', result=result)
+        return render_template('song_params.html', s_chacteristic=s_chacteristic, s_params=s_params)
 
     return app

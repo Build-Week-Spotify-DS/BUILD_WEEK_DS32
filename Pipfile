@@ -9,6 +9,9 @@ flask-sqlalchemy = "*"
 jinja2 = "*"
 gunicorn = "*"
 python-dotenv = "*"
+numpy = "*"
+pandas = "*"
+requests = "*"
 
 [dev-packages]
 autopep8 = "*"

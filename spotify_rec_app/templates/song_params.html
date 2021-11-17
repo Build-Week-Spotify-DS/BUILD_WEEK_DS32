@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container">
+
+  <table>
+    
+  <tr>
+      {% for c in s_chacteristic %}
+        <th>{{c}}</th>
+      {% endfor %}
+  </tr>
+  <tr>
+      {% for p in s_params %}
+        <td>{{p}}</td>
+      {% endfor %}
+  </tr>
+  </table>
+</div>
+{% endblock %}
+
+
+
