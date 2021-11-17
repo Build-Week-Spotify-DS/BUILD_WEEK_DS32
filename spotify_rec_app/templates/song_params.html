@@ -2,19 +2,19 @@
 
 {% block content %}
 <div class="container">
-
-  <table>
-    
+  <table style="float:left;">
+  {% for c in s_chacteristic %}
   <tr>
-      {% for c in s_chacteristic %}
-        <th>{{c}}</th>
-      {% endfor %}
+      <th>{{c}}</th>
   </tr>
+  {% endfor %}
+  </table>
+  <table style="float:left;">
+  {% for p in s_params %}
   <tr>
-      {% for p in s_params %}
-        <td>{{p}}</td>
-      {% endfor %}
+      <td>{{p}}</td>
   </tr>
+  {% endfor %}
   </table>
 </div>
 {% endblock %}
