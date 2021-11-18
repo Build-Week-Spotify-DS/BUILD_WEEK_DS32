@@ -12,6 +12,9 @@ python-dotenv = "*"
 numpy = "*"
 pandas = "*"
 requests = "*"
+matplotlib = "*"
+sklearn = "*"
+flask-session = "*"
 
 [dev-packages]
 autopep8 = "*"

@@ -33,12 +33,12 @@ def get_song_params(song_link):
 
     df = pd.DataFrame([r.json()])
     song_param = np.array(df[feature_columns])[0]
+    np.set_printoptions(suppress=True)
     return df[feature_columns].columns, song_param
-    # return song_param
 
 
 # pa = get_song_params(
 #     'https://open.spotify.com/track/4n73HJkpPMpPVYPbJqfgAZ?si=1b2b713977f54d8f')
 
 
-# print(pa)
+

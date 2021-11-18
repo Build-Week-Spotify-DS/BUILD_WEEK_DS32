@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
-# from .predict import pickle_model
 from .getting_stuff_from_spotify import get_song_params
+from .model import KNN_pipeline
 
 
 def create_app():
@@ -18,7 +18,7 @@ def create_app():
         message = request.values['song']
 
         s_chacteristic, s_params = get_song_params(message)
-
-        return render_template('song_params.html', s_chacteristic=s_chacteristic, s_params=s_params)
+        result = KNN_pipeline(s_params)
+        return render_template('song_params.html', s_chacteristic=s_chacteristic, s_params=s_params, result=result[0])
 
     return app

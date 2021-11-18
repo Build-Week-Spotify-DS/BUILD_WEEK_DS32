@@ -2,22 +2,29 @@
 
 {% block content %}
 <div class="container">
+  <h3>Song Features</h3>
   <table style="float:left;">
   {% for c in s_chacteristic %}
   <tr>
-      <th>{{c}}</th>
+    <th>{{c}}</th>
   </tr>
   {% endfor %}
-  </table>
-  <table style="float:left;">
+</table>
+<table style="float:left;">
   {% for p in s_params %}
   <tr>
-      <td>{{p}}</td>
+    <td>{{p}}</td>
   </tr>
   {% endfor %}
-  </table>
+</table>
 </div>
+<div style="padding-left:10em;">
+<h3>Similar Tracks</h3>
+  <ul>
+    {% for r in result %}
+      <li><a href=>{{ r }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
 {% endblock %}
-
-
-
