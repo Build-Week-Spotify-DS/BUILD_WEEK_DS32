@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 import numpy as np
-
+from os import getenv
 feature_columns = ['acousticness', 'danceability', 'duration_ms',
                    'energy', 'instrumentalness', 'liveness',
                    'loudness', 'speechiness', 'tempo', 'valence']
@@ -9,8 +9,8 @@ feature_columns = ['acousticness', 'danceability', 'duration_ms',
 
 def get_song_params(song_link):
 
-    CLIENT_ID = '97e7179da2cd4d2a9cd9b3ee9602d80f'
-    CLIENT_SECRET = 'c09d7e19e8494d14a290dec70d43bf20'
+    CLIENT_ID = getenv('CLIENT_ID')
+    CLIENT_SECRET = getenv('CLIENT_SECRET')
     AUTH_URL = 'https://accounts.spotify.com/api/token'
 
     auth_response = requests.post(AUTH_URL, {
@@ -32,13 +32,7 @@ def get_song_params(song_link):
     r.json()
 
     df = pd.DataFrame([r.json()])
-    song_param = np.array(df[feature_columns])[0]
+    df['duration_ms'] = df['duration_ms']/60000
+    song_param = np.array(df[feature_columns])[0].reshape(-1, 1)
     np.set_printoptions(suppress=True)
     return df[feature_columns].columns, song_param
-
-
-# pa = get_song_params(
-#     'https://open.spotify.com/track/4n73HJkpPMpPVYPbJqfgAZ?si=1b2b713977f54d8f')
-
-
-

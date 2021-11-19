@@ -11,14 +11,16 @@ def create_app():
         """Base view."""
         return render_template('index.html', title="Spotify Song Suggester")
 
-    @ app.route('/submit', methods=['GET', 'POST'])
+    @app.route('/submit', methods=['GET', 'POST'])
     def submit(message=None):
         '''run array throu a pickle model'''
 
         message = request.values['song']
 
         s_chacteristic, s_params = get_song_params(message)
-        result = KNN_pipeline(s_params)
-        return render_template('song_params.html', s_chacteristic=s_chacteristic, s_params=s_params, result=result[0])
+        urls, artist, track = KNN_pipeline(s_params)
 
+        return render_template('song_params.html', s_chacteristic=s_chacteristic,
+                               s_params=s_params, urls=urls, artist=artist, track=track)
+    # @app.route('/image',methods=['GET','POST'])
     return app

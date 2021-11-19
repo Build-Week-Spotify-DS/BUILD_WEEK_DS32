@@ -5,19 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    <!-- <style>html {
+        text-align: center;
+    
+    }
+    body {
+        background-image: url(static/background.jpg);
+        background-color: #cccccc;
+        background-size: cover;
+        background-position: center;
+        font-family: Comic Sans MS, Comic Sans, cursive;
+    } -->
+</style>
     <link rel="stylesheet" href="https://unpkg.com/picnic" />
 </head>
 <body>
-    <nav>
+    <div>
+    <nav style ="background-color: black;">
         <div class="menu">
-            <a href="/" class="brand"><span>SPOTIFY SONG RECOMMENDER</span></a>
+            <a href="/" class="brand" style="color: white;"><span>SPOTIFY SONG SUGGESTER</span></a>
         </div>
     </nav>
     <article class="flex two" style="padding: 5em 5em;">
         <div style= "width:500px; margin:0 auto;">
             <form action="/submit" method="GET"> 
 
-                <label for="song">Enter a song:</label><br>
+                <label for="song">Enter a track link:</label><br>
                 <input type="text" id="song" name="song"><br>
 
                 <input type="submit" value="Recommend" class="button primary">
@@ -31,6 +44,6 @@
         {% endblock %}
    
     </article>
-
+</div>
 </body>
 </html>
